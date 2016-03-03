@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to 
+  ul
+   - for(var i in result){
+     li #{result[i].tensp}
+    -}
+     li a

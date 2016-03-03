@@ -1,0 +1,1 @@
+var method=Model.prototype;
