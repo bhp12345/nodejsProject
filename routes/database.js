@@ -1,18 +1,16 @@
 var express = require('express');
 var router = express.Router();
-var mysql=require('mysql');
-var connect=mysql.createConnection( {
-  host     : 'localhost',
-  user     : 'root',
-  password : '123456',
-  database : 'shop'
-});
+
+var controller;
+function setController(crl)
+{
+ controller=crl;
+}
+
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  
-  connect.query("select * from sanpham",function(err,rows,fields){
-  res.render('database', { result: rows});
-  });
+router.get('/', function(req,res,next){
+controller.show(req, res, next);
 });
 
 module.exports = router;
+module.exports.setController=setController;
